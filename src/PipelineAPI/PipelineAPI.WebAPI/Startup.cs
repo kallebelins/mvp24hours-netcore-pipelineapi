@@ -11,7 +11,6 @@ using Mvp24Hours.WebAPI.Middlewares;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using PipelineAPI.Application.Logic;
-using PipelineAPI.ApplicationWebClient.Factories;
 using PipelineAPI.Core.Contract.Logic;
 using PipelineAPI.Core.Contract.Pipelines.ProductCategories;
 using PipelineAPI.Core.Contract.Pipelines.Products;
@@ -75,10 +74,10 @@ namespace PipelineAPI.WebAPI
             #region [ MyServices ]
 
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IProductGetByBuilder, ProductGetByBuilder>();
+            services.AddScoped<IProductGetByBuilder, PipelineAPI.ApplicationWebClient.Factories.ProductGetByBuilder>();
 
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
-            services.AddScoped<IProductCategoryListBuilder, ProductCategoryListBuilder>();
+            services.AddScoped<IProductCategoryListBuilder, PipelineAPI.ApplicationWebClient.Factories.ProductCategoryListBuilder>();
 
             #endregion
 
@@ -116,16 +115,16 @@ namespace PipelineAPI.WebAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // check environment
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                #region [ Custom Exception ]
-                app.UseMiddleware<ExceptionMiddleware>();
-                #endregion
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            #region [ Custom Exception ]
+            app.UseMiddleware<ExceptionMiddleware>();
+            #endregion
+            //}
 
             app.UseStaticFiles();
             app.UseRouting();
