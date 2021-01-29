@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PipelineAPI.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:PipelineAPI.API.Controllers.ProductCategoryController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.API.Controllers.ProductCategoryController.Get">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PipelineAPI.API.Controllers.ProductController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.API.Controllers.ProductController.Get(PipelineAPI.Core.ValueObjects.Filters.ProductFilter)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:PipelineAPI.WebAPI.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.WebAPI.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:PipelineAPI.WebAPI.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PipelineAPI.WebAPI.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.WebAPI.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PipelineAPI.WebAPI.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.WebAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:PipelineAPI.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>
