@@ -8,12 +8,7 @@ namespace PipelineAPI.ApplicationWebClient.Operations.ProductGetBy
 {
     internal class ProductResponseMapperOperation : OperationMapperAsync<Product>
     {
-        public override Task<IPipelineMessage> Execute(IPipelineMessage input)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Product Mapper(params object[] data)
+        public override Task<Product> MapperAsync(IPipelineMessage input)
         {
             throw new NotImplementedException();
         }

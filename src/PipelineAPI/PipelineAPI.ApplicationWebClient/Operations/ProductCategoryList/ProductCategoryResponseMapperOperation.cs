@@ -9,25 +9,16 @@ namespace PipelineAPI.ApplicationWebClient.Operations.ProductCategoryList
 {
     internal class ProductCategoryResponseMapperOperation : OperationMapperAsync<IEnumerable<ProductCategory>>
     {
-        public override Task<IPipelineMessage> Execute(IPipelineMessage input)
+        public override async Task<IEnumerable<ProductCategory>> MapperAsync(IPipelineMessage input)
         {
-            var result = input?.GetContent<IEnumerable<Product>>();
+            var products = input?.GetContent<IEnumerable<Product>>();
 
-            if (result == null)
+            if (products == null)
             {
-                Context.AddNotification("ProductCategoryResponseMapperOperation", "Product not found.");
-            }
-            else
-            {
-                input.AddContent(Mapper(result));
+                NotificationContext.AddNotification("ProductCategoryResponseMapperOperation", "Product not found.");
+                return null;
             }
 
-            return Task.FromResult(input);
-        }
-
-        public override IEnumerable<ProductCategory> Mapper(params object[] data)
-        {
-            var products = data.ElementAtOrDefault(0) as IEnumerable<Product>;
             var result = new List<ProductCategory>();
             foreach (var item in products)
             {
@@ -40,7 +31,7 @@ namespace PipelineAPI.ApplicationWebClient.Operations.ProductCategoryList
                     });
                 }
             }
-            return result;
+            return await Task.FromResult(result);
         }
     }
 }

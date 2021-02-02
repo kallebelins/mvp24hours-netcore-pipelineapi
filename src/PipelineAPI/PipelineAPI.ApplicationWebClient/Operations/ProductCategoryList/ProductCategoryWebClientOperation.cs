@@ -27,7 +27,7 @@ namespace PipelineAPI.ApplicationWebClient.Operations.ProductCategoryList
 
             if (!_cache.TryGetValue(WebClientHelper.ProductCacheKey, out products))
             {
-                var response = await ServiceRequestHelper.GetAsync($"{WebClientHelper.GetUrl()}");
+                var response = await WebRequestHelper.GetAsync($"{WebClientHelper.GetUrl()}");
                 products = JsonConvert.DeserializeObject<IEnumerable<Product>>(response);
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
